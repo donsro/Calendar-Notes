@@ -1,13 +1,17 @@
 import React from "react";
 
-function Calendar({ ...props }) {
-    const { handleChange } = props;
+function CalendarDay({ ...props }) {
+    const isActive = props.dateSelected === props.value ? " active" : "";
+    return <button className={`btn btn-outline-primary${isActive}`} {...props}>Day {props.value}</button>
+}
+
+function Calendar({ ...props }) {    
+    const calendarObject = [1, 2, 3, 4, 5, 6, 7]; // demo only 
+    const calendarDays = calendarObject.map(day => (
+        <CalendarDay dateSelected={props.dateSelected} key={day.toString()} value={day} onClick={(e) => props.handleChange(e.target.value)} />
+    ));
     return <div className="btn-group">
-        <button className="btn btn-outline-primary" value={1} onClick={(e) => handleChange(e.target.value) }>Day 1</button>
-        <button className="btn btn-outline-primary" value={2} onClick={(e) => handleChange(e.target.value) }>Day 2</button>
-        <button className="btn btn-outline-primary" value={3} onClick={(e) => handleChange(e.target.value) }>Day 3</button>
-        <button className="btn btn-outline-primary" value={4} onClick={(e) => handleChange(e.target.value) }>Day 4</button>
-        <button className="btn btn-outline-primary" value={5} onClick={(e) => handleChange(e.target.value) }>Day 5</button>
+        {calendarDays}
     </div>;
 }
 

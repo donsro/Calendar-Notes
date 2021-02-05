@@ -46,7 +46,9 @@ class CalendarApp extends React.Component {
                 note={noteText}
                 handleChange={this.handleNoteInputChange}
                 dateSelected={dateSelected} />
-            <Calendar handleChange={this.handleDateChange} />
+            <Calendar
+                handleChange={this.handleDateChange}
+                dateSelected={dateSelected} />
         </Fragment>;
     }
 }
