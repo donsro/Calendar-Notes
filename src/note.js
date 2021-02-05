@@ -8,6 +8,7 @@ function Note({ ...props }) {
             className="form-control"
             disabled={!dateSelected}
             onChange={(e) => handleChange(e.target.value, dateSelected)}
+            placeholder="Type some note..."
             value={note} />
     </div>;
 }
